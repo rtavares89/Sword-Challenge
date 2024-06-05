@@ -1,13 +1,25 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Cats" : {
+
+    },
     "Cats App" : {
 
     },
-    "Hello, world!" : {
+    "Cats List" : {
 
     },
-    "Hello, World!" : {
+    "Details" : {
+
+    },
+    "Favourites" : {
+
+    },
+    "Next" : {
+
+    },
+    "View" : {
 
     }
   },

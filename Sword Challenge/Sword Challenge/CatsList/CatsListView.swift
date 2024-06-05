@@ -3,18 +3,24 @@ import SwiftUI
 
 struct CatsListView: View {
 
-    @State var searchText: String = ""
     @Bindable var viewModel: CatsListViewModel
 
     var body: some View {
-        NavigationStack {
-            Text("Hello, World!")
-                .navigationTitle("Cats App")
+
+        VStack {
+
+            Text("Cats List")
+
+            NavigationLink {
+                Text("View")
+                    .navigationTitle("Details")
+            } label: {
+                Text("Next")
+            }
         }
-        .searchable(text: $viewModel.searchText)
     }
 }
 
 #Preview {
-    CatsListView(viewModel: CatsListViewModel(cats: []))
+    CatsListView(viewModel: CatsListViewModel())
 }

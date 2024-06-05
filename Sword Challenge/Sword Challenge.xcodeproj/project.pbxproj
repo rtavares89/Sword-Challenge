@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A60A78B2C0FD5EC00B92E44 /* Sword_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A60A78A2C0FD5EC00B92E44 /* Sword_ChallengeApp.swift */; };
-		5A60A78D2C0FD5EC00B92E44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A60A78C2C0FD5EC00B92E44 /* ContentView.swift */; };
+		5A60A78D2C0FD5EC00B92E44 /* CatsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A60A78C2C0FD5EC00B92E44 /* CatsTabView.swift */; };
 		5A60A78F2C0FD5EE00B92E44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A60A78E2C0FD5EE00B92E44 /* Assets.xcassets */; };
 		5A60A7922C0FD5EE00B92E44 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A60A7912C0FD5EE00B92E44 /* Preview Assets.xcassets */; };
 		5A60A79C2C0FD5EF00B92E44 /* Sword_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A60A79B2C0FD5EF00B92E44 /* Sword_ChallengeTests.swift */; };
@@ -19,7 +19,8 @@
 		5AD3125A2C0FE254000881AB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5AD312592C0FE254000881AB /* Localizable.xcstrings */; };
 		5AD3125C2C0FE588000881AB /* CatDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3125B2C0FE588000881AB /* CatDetailsViewModel.swift */; };
 		5AD3125E2C0FE604000881AB /* CatListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3125D2C0FE604000881AB /* CatListItem.swift */; };
-		5AD312612C0FE77A000881AB /* FavoritesCatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312602C0FE77A000881AB /* FavoritesCatsView.swift */; };
+		5AD312612C0FE77A000881AB /* FavouritesCatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312602C0FE77A000881AB /* FavouritesCatsView.swift */; };
+		5AD312642C10A851000881AB /* CatsTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312632C10A851000881AB /* CatsTabViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,7 @@
 /* Begin PBXFileReference section */
 		5A60A7872C0FD5EC00B92E44 /* Sword Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sword Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A60A78A2C0FD5EC00B92E44 /* Sword_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sword_ChallengeApp.swift; sourceTree = "<group>"; };
-		5A60A78C2C0FD5EC00B92E44 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5A60A78C2C0FD5EC00B92E44 /* CatsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsTabView.swift; sourceTree = "<group>"; };
 		5A60A78E2C0FD5EE00B92E44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A60A7912C0FD5EE00B92E44 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A60A7972C0FD5EF00B92E44 /* Sword ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sword ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +56,8 @@
 		5AD312592C0FE254000881AB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		5AD3125B2C0FE588000881AB /* CatDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailsViewModel.swift; sourceTree = "<group>"; };
 		5AD3125D2C0FE604000881AB /* CatListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatListItem.swift; sourceTree = "<group>"; };
-		5AD312602C0FE77A000881AB /* FavoritesCatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCatsView.swift; sourceTree = "<group>"; };
+		5AD312602C0FE77A000881AB /* FavouritesCatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCatsView.swift; sourceTree = "<group>"; };
+		5AD312632C10A851000881AB /* CatsTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsTabViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,13 +108,13 @@
 		5A60A7892C0FD5EC00B92E44 /* Sword Challenge */ = {
 			isa = PBXGroup;
 			children = (
-				5A60A78C2C0FD5EC00B92E44 /* ContentView.swift */,
 				5A60A78A2C0FD5EC00B92E44 /* Sword_ChallengeApp.swift */,
 				5AD312552C0FE104000881AB /* CatDetails */,
 				5AD312542C0FE0F9000881AB /* CatsList */,
-				5AD3125F2C0FE75F000881AB /* FavoritesCats */,
+				5AD3125F2C0FE75F000881AB /* FavouritesCats */,
 				5A60A7902C0FD5EE00B92E44 /* Preview Content */,
 				5AD312582C0FE240000881AB /* Resources */,
+				5AD312622C10A83B000881AB /* TabView */,
 			);
 			path = "Sword Challenge";
 			sourceTree = "<group>";
@@ -169,12 +171,21 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		5AD3125F2C0FE75F000881AB /* FavoritesCats */ = {
+		5AD3125F2C0FE75F000881AB /* FavouritesCats */ = {
 			isa = PBXGroup;
 			children = (
-				5AD312602C0FE77A000881AB /* FavoritesCatsView.swift */,
+				5AD312602C0FE77A000881AB /* FavouritesCatsView.swift */,
 			);
-			path = FavoritesCats;
+			path = FavouritesCats;
+			sourceTree = "<group>";
+		};
+		5AD312622C10A83B000881AB /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				5A60A78C2C0FD5EC00B92E44 /* CatsTabView.swift */,
+				5AD312632C10A851000881AB /* CatsTabViewModel.swift */,
+			);
+			path = TabView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,13 +319,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A60A78D2C0FD5EC00B92E44 /* ContentView.swift in Sources */,
+				5A60A78D2C0FD5EC00B92E44 /* CatsTabView.swift in Sources */,
 				5AD312572C0FE11B000881AB /* CatsListViewModel.swift in Sources */,
 				5A60A78B2C0FD5EC00B92E44 /* Sword_ChallengeApp.swift in Sources */,
 				5AD312532C0FE0F2000881AB /* CatsListView.swift in Sources */,
-				5AD312612C0FE77A000881AB /* FavoritesCatsView.swift in Sources */,
+				5AD312612C0FE77A000881AB /* FavouritesCatsView.swift in Sources */,
 				5AD3125C2C0FE588000881AB /* CatDetailsViewModel.swift in Sources */,
 				5AD3125E2C0FE604000881AB /* CatListItem.swift in Sources */,
+				5AD312642C10A851000881AB /* CatsTabViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
