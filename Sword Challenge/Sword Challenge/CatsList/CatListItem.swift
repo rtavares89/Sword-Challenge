@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct CatListItem {
+struct CatListItem: Hashable {
     var name: String
     var image: String
     var isFavorite: Bool

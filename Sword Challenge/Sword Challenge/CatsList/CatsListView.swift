@@ -11,6 +11,17 @@ struct CatsListView: View {
 
             Text("Cats List")
 
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible())], content: {
+//                    Text("Placeholder")
+//                    Text("Placeholder")
+
+                    ForEach(viewModel.cats, id: \.self) { cat in
+                        CatListItemView()
+                    }
+                })
+            }
+
             NavigationLink {
                 Text("View")
                     .navigationTitle("Details")

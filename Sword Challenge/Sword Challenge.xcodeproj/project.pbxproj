@@ -21,6 +21,7 @@
 		5AD3125E2C0FE604000881AB /* CatListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3125D2C0FE604000881AB /* CatListItem.swift */; };
 		5AD312612C0FE77A000881AB /* FavouritesCatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312602C0FE77A000881AB /* FavouritesCatsView.swift */; };
 		5AD312642C10A851000881AB /* CatsTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312632C10A851000881AB /* CatsTabViewModel.swift */; };
+		5AD312662C10D283000881AB /* CatListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312652C10D283000881AB /* CatListItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		5AD3125D2C0FE604000881AB /* CatListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatListItem.swift; sourceTree = "<group>"; };
 		5AD312602C0FE77A000881AB /* FavouritesCatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCatsView.swift; sourceTree = "<group>"; };
 		5AD312632C10A851000881AB /* CatsTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsTabViewModel.swift; sourceTree = "<group>"; };
+		5AD312652C10D283000881AB /* CatListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				5AD312522C0FE0F2000881AB /* CatsListView.swift */,
 				5AD312562C0FE11B000881AB /* CatsListViewModel.swift */,
 				5AD3125D2C0FE604000881AB /* CatListItem.swift */,
+				5AD312652C10D283000881AB /* CatListItemView.swift */,
 			);
 			path = CatsList;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				5AD312532C0FE0F2000881AB /* CatsListView.swift in Sources */,
 				5AD312612C0FE77A000881AB /* FavouritesCatsView.swift in Sources */,
 				5AD3125C2C0FE588000881AB /* CatDetailsViewModel.swift in Sources */,
+				5AD312662C10D283000881AB /* CatListItemView.swift in Sources */,
 				5AD3125E2C0FE604000881AB /* CatListItem.swift in Sources */,
 				5AD312642C10A851000881AB /* CatsTabViewModel.swift in Sources */,
 			);

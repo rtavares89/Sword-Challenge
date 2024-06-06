@@ -32,13 +32,9 @@ struct CatsTabView: View {
 }
 
 #Preview("Cats List") {
-    NavigationStack {
-        CatsTabView(viewModel: CatsTabViewModel(selectedTab: .list))
-    }
+    CatsTabView(viewModel: CatsTabViewModel(selectedTab: .list))
 }
 
 #Preview("Favourites") {
-    NavigationStack {
-        CatsTabView(viewModel: CatsTabViewModel(selectedTab: .favourites))
-    }
+    CatsTabView(viewModel: CatsTabViewModel(selectedTab: .favourites))
 }
