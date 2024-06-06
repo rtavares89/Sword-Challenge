@@ -20,3 +20,13 @@ public struct CatBreed {
         self.imageId = imageId
     }
 }
+
+public struct CatImage {
+    public var id: String
+    public var url: String
+
+    public init(id: String, url: String) {
+        self.id = id
+        self.url = url
+    }
+}

@@ -9,6 +9,7 @@ import Foundation
 
 public protocol CatsUseCases {
     func fetchCatBreeds(page: Int) async throws -> [CatBreed]
+    func downloadCatImage(imageId: String) async throws
 }
 
 public final class CatsUseCasesImplementation: CatsUseCases {
@@ -21,5 +22,9 @@ public final class CatsUseCasesImplementation: CatsUseCases {
 
     public func fetchCatBreeds(page: Int) async throws -> [CatBreed] {
         try await catsGateway.fetchCatBreeds(page: page)
+    }
+
+    public func downloadCatImage(imageId: String) async throws {
+        
     }
 }
