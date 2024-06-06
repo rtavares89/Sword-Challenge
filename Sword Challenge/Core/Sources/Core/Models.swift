@@ -21,6 +21,8 @@ public struct CatBreed {
     }
 }
 
+extension CatBreed: Equatable { }
+
 public struct CatImage {
     public var id: String
     public var url: String
@@ -30,3 +32,5 @@ public struct CatImage {
         self.url = url
     }
 }
+
+extension CatImage: Equatable { }

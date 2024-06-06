@@ -2,7 +2,7 @@
 import Foundation
 import Core
 
-struct CatBreedResponse: Decodable {
+struct CatBreedsResponse: Decodable {
     var id: String
     var name: String
     var description: String
@@ -12,14 +12,9 @@ struct CatBreedResponse: Decodable {
     var referenceImageId: String
 }
 
-struct CatImageResponse: Decodable {
-    var id: String
-    var url: String
-}
-
 extension CatBreed {
 
-    init(catBreedResponse: CatBreedResponse) {
+    init(catBreedResponse: CatBreedsResponse) {
         self.init(id: catBreedResponse.id,
                   name: catBreedResponse.name,
                   description: catBreedResponse.description,
@@ -30,10 +25,16 @@ extension CatBreed {
     }
 }
 
-extension CatImage {
+#if DEBUG
 
-    init(catImageResponse: CatImageResponse) {
-        self.init(id: catImageResponse.id,
-                  url: catImageResponse.url)
-    }
+extension CatBreedsResponse {
+    static let mock = CatBreedsResponse(id: "catId",
+                                        name: "cat name",
+                                        description: "cat description",
+                                        origin: "cat origin",
+                                        temperament: "cat temperament",
+                                        lifeSpan: "cat life span",
+                                        referenceImageId: "imageId")
 }
+
+#endif
