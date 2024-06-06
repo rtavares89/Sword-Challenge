@@ -29,9 +29,17 @@ struct CatsListView: View {
                 Text("Next")
             }
         }
+        .task {
+            await viewModel.viewAppear()
+        }
     }
 }
 
 #Preview {
-    CatsListView(viewModel: CatsListViewModel())
+    CatsListView(
+        viewModel:
+            CatsListViewModel(
+                catsUseCases: DependencyManager.shared.catsUseCases
+            )
+    )
 }

@@ -17,7 +17,7 @@ final class CatsTabViewModel {
     
     var selectedTab: CatTab = .list
 
-    init(selectedTab: CatTab) {
+    init(selectedTab: CatTab = .list) {
         self.selectedTab = selectedTab
     }
 }

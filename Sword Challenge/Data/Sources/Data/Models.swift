@@ -9,7 +9,7 @@ struct CatBreedResponse: Decodable {
     var origin: String
     var temperament: String
     var lifeSpan: String
-    var image: CatImage
+    var referenceImageId: String
 }
 
 struct CatImage: Decodable {
@@ -19,16 +19,13 @@ struct CatImage: Decodable {
 
 extension CatBreed {
 
-    init?(catResponse: CatBreedResponse) {
-
-        guard let imageUrl = URL(string: catResponse.image.url) else { return nil}
-
+    init(catResponse: CatBreedResponse) {
         self.init(id: catResponse.id,
                   name: catResponse.name,
                   description: catResponse.description,
                   origin: catResponse.origin,
                   temperament: catResponse.temperament,
                   lifeSpan: catResponse.lifeSpan,
-                  image: imageUrl)
+                  imageId: catResponse.referenceImageId)
     }
 }

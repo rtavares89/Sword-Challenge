@@ -10,8 +10,13 @@ struct CatsTabView: View {
         TabView(selection: $viewModel.selectedTab) {
 
             NavigationStack {
-                CatsListView(viewModel: CatsListViewModel())
-                    .navigationTitle("Cats App")
+                CatsListView(
+                    viewModel:
+                        CatsListViewModel(
+                            catsUseCases: DependencyManager.shared.catsUseCases
+                        )
+                )
+                .navigationTitle("Cats App")
             }
             .searchable(text: .constant(""))
             .tabItem {

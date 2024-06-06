@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A4084202C11DE4200736315 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 5A40841F2C11DE4200736315 /* Core */; };
+		5A4084222C11DE9D00736315 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4084212C11DE9D00736315 /* DependencyManager.swift */; };
+		5A4084242C11DF8D00736315 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4084232C11DF8D00736315 /* Data */; };
 		5A60A78B2C0FD5EC00B92E44 /* Sword_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A60A78A2C0FD5EC00B92E44 /* Sword_ChallengeApp.swift */; };
 		5A60A78D2C0FD5EC00B92E44 /* CatsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A60A78C2C0FD5EC00B92E44 /* CatsTabView.swift */; };
 		5A60A78F2C0FD5EE00B92E44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A60A78E2C0FD5EE00B92E44 /* Assets.xcassets */; };
@@ -42,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A4084212C11DE9D00736315 /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		5A60A7872C0FD5EC00B92E44 /* Sword Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sword Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A60A78A2C0FD5EC00B92E44 /* Sword_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sword_ChallengeApp.swift; sourceTree = "<group>"; };
 		5A60A78C2C0FD5EC00B92E44 /* CatsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsTabView.swift; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A4084242C11DF8D00736315 /* Data in Frameworks */,
+				5A4084202C11DE4200736315 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +93,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A40841E2C11DE4200736315 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5A60A77E2C0FD5EC00B92E44 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +107,7 @@
 				5A60A79A2C0FD5EF00B92E44 /* Sword ChallengeTests */,
 				5A60A7A42C0FD5EF00B92E44 /* Sword ChallengeUITests */,
 				5A60A7882C0FD5EC00B92E44 /* Products */,
+				5A40841E2C11DE4200736315 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,6 +131,7 @@
 				5A60A7902C0FD5EE00B92E44 /* Preview Content */,
 				5AD312582C0FE240000881AB /* Resources */,
 				5AD312622C10A83B000881AB /* TabView */,
+				5A4084212C11DE9D00736315 /* DependencyManager.swift */,
 			);
 			path = "Sword Challenge";
 			sourceTree = "<group>";
@@ -207,6 +222,10 @@
 			dependencies = (
 			);
 			name = "Sword Challenge";
+			packageProductDependencies = (
+				5A40841F2C11DE4200736315 /* Core */,
+				5A4084232C11DF8D00736315 /* Data */,
+			);
 			productName = "Sword Challenge";
 			productReference = 5A60A7872C0FD5EC00B92E44 /* Sword Challenge.app */;
 			productType = "com.apple.product-type.application";
@@ -324,6 +343,7 @@
 			files = (
 				5A60A78D2C0FD5EC00B92E44 /* CatsTabView.swift in Sources */,
 				5AD312572C0FE11B000881AB /* CatsListViewModel.swift in Sources */,
+				5A4084222C11DE9D00736315 /* DependencyManager.swift in Sources */,
 				5A60A78B2C0FD5EC00B92E44 /* Sword_ChallengeApp.swift in Sources */,
 				5AD312532C0FE0F2000881AB /* CatsListView.swift in Sources */,
 				5AD312612C0FE77A000881AB /* FavouritesCatsView.swift in Sources */,
@@ -660,6 +680,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A40841F2C11DE4200736315 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		5A4084232C11DF8D00736315 /* Data */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Data;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A60A77F2C0FD5EC00B92E44 /* Project object */;
 }

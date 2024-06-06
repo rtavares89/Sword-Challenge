@@ -8,15 +8,15 @@ public struct CatBreed {
     public var origin: String
     public var temperament: String
     public var lifeSpan: String
-    public var image: URL
+    public var imageId: String
 
-    public init(id: String, name: String, description: String, origin: String, temperament: String, lifeSpan: String, image: URL) {
+    public init(id: String, name: String, description: String, origin: String, temperament: String, lifeSpan: String, imageId: String) {
         self.id = id
         self.name = name
         self.description = description
         self.origin = origin
         self.temperament = temperament
         self.lifeSpan = lifeSpan
-        self.image = image
+        self.imageId = imageId
     }
 }
