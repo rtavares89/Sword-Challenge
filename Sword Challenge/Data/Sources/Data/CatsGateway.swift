@@ -23,7 +23,7 @@ public final class CatsGatewayImplementation: CatsGateway {
         return catsBreed
     }
 
-    public func fetchCatImage(imageId: String) async throws -> CatImage? {
+    public func fetchCatImage(imageId: String) async throws -> CatImage {
 
         let request = CatImageRequest(baseUrl: baseUrl, imageId: imageId).request
 

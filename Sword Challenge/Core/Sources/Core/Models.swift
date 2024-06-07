@@ -1,6 +1,11 @@
 
 import Foundation
 
+public struct Cat {
+    public var breed: CatBreed
+    public var image: CatImage?
+}
+
 public struct CatBreed {
     public var id: String
     public var name: String
@@ -26,10 +31,12 @@ extension CatBreed: Equatable { }
 public struct CatImage {
     public var id: String
     public var url: String
+    public var data: Data?
 
-    public init(id: String, url: String) {
+    public init(id: String, url: String, data: Data? = nil) {
         self.id = id
         self.url = url
+        self.data = data
     }
 }
 

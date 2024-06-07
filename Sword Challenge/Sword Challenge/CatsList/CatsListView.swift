@@ -9,15 +9,10 @@ struct CatsListView: View {
 
         VStack {
 
-            Text("Cats List")
-
             ScrollView {
                 LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible())], content: {
-//                    Text("Placeholder")
-//                    Text("Placeholder")
-
                     ForEach(viewModel.cats, id: \.self) { cat in
-                        CatListItemView()
+                        CatListItemView(name: cat.name, imageData: cat.image)
                     }
                 })
             }

@@ -2,14 +2,22 @@
 import SwiftUI
 
 struct CatListItemView: View {
+
+    let name: String
+    let imageData: Data
+
     var body: some View {
         VStack {
-            Image(systemName: "star")
-            Text("Cat")
+            if let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFit()
+            }
+            Text(name)
         }
     }
 }
 
 #Preview {
-    CatListItemView()
+    CatListItemView(name: "Cat", imageData: Data())
 }
