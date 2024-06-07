@@ -72,4 +72,15 @@ final class CatsUseCasesTests: XCTestCase {
 
         XCTAssertEqual(cat, expectedCats)
     }
+
+    func test_GIVEN_a_cat_id_WHEN_getting_cat_by_id_THEN_should_return_cat() async throws {
+        catGatewayStub.catBreeds = [CatBreed.dummy]
+        catGatewayStub.catImage = [CatImage.dummyWithData.id: CatImage.dummyWithData]
+
+        let _ = try await useCases.fetchCats(page: 0)
+
+        let cat = useCases.getCat(id: CatBreed.dummy.id)
+
+        XCTAssertEqual(cat, Cat(breed: CatBreed.dummy, image: CatImage.dummyWithData))
+    }
 }

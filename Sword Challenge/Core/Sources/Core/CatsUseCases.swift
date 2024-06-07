@@ -3,11 +3,13 @@ import Foundation
 
 public protocol CatsUseCases {
     func fetchCats(page: Int) async throws -> [Cat]
+    func getCat(id: String) -> Cat?
 }
 
 public final class CatsUseCasesImplementation: CatsUseCases {
 
     private let catsGateway: CatsGateway
+    private var cats = [Cat]()
 
     public init(catsGateway: CatsGateway) {
         self.catsGateway = catsGateway
@@ -17,7 +19,7 @@ public final class CatsUseCasesImplementation: CatsUseCases {
         let catBreeds = try await catsGateway.fetchCatBreeds(page: page)
         let catImages = try await fetchCatImages(imagesIds: catBreeds.map { $0.imageId })
 
-        let cats = catBreeds.map { breed in
+        cats = catBreeds.map { breed in
             let image = catImages.first { image in
                 image.id == breed.imageId
             }
@@ -26,6 +28,10 @@ public final class CatsUseCasesImplementation: CatsUseCases {
         }
 
         return cats
+    }
+
+    public func getCat(id: String) -> Cat? {
+        cats.first { $0.breed.id == id }
     }
 
     private func fetchCatImages(imagesIds: [String]) async throws -> [CatImage] {

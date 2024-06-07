@@ -6,14 +6,7 @@ import Core
 @MainActor
 final class CatsListViewModel {
     
-//    var cats = [CatListItem]()
-    var cats = [
-        CatListItem(id: UUID().uuidString, name: "1", image: Data(), isFavorite: false),
-        CatListItem(id: UUID().uuidString, name: "2", image: Data(), isFavorite: false),
-        CatListItem(id: UUID().uuidString, name: "3", image: Data(), isFavorite: false),
-        CatListItem(id: UUID().uuidString, name: "4", image: Data(), isFavorite: false),
-        CatListItem(id: UUID().uuidString, name: "5", image: Data(), isFavorite: false)
-    ]
+    var cats = [CatListItem]()
     var searchText: String = ""
     var isLoading = false
 
@@ -34,8 +27,10 @@ final class CatsListViewModel {
 
             print(cats)
 
-            self.cats = cats.map({ cat in
-                CatListItem(id: cat.breed.id, name: cat.breed.name, image: cat.image!.data!, isFavorite: false)
+            self.cats = cats.compactMap({ cat in
+                guard let imageData = cat.image?.data else { return nil }
+
+                return CatListItem(id: cat.breed.id, name: cat.breed.name, image: imageData, isFavorite: false)
             })
         } catch {
             print(error)

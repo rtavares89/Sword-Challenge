@@ -17,6 +17,7 @@
 		5A60A79C2C0FD5EF00B92E44 /* Sword_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A60A79B2C0FD5EF00B92E44 /* Sword_ChallengeTests.swift */; };
 		5A60A7A62C0FD5EF00B92E44 /* Sword_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A60A7A52C0FD5EF00B92E44 /* Sword_ChallengeUITests.swift */; };
 		5A60A7A82C0FD5EF00B92E44 /* Sword_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A60A7A72C0FD5EF00B92E44 /* Sword_ChallengeUITestsLaunchTests.swift */; };
+		5ACB81802C13462B00415C0E /* CatDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB817F2C13462B00415C0E /* CatDetailsView.swift */; };
 		5AD312532C0FE0F2000881AB /* CatsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312522C0FE0F2000881AB /* CatsListView.swift */; };
 		5AD312572C0FE11B000881AB /* CatsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312562C0FE11B000881AB /* CatsListViewModel.swift */; };
 		5AD3125A2C0FE254000881AB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5AD312592C0FE254000881AB /* Localizable.xcstrings */; };
@@ -56,6 +57,7 @@
 		5A60A7A12C0FD5EF00B92E44 /* Sword ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sword ChallengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A60A7A52C0FD5EF00B92E44 /* Sword_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sword_ChallengeUITests.swift; sourceTree = "<group>"; };
 		5A60A7A72C0FD5EF00B92E44 /* Sword_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sword_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5ACB817F2C13462B00415C0E /* CatDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailsView.swift; sourceTree = "<group>"; };
 		5AD312522C0FE0F2000881AB /* CatsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListView.swift; sourceTree = "<group>"; };
 		5AD312562C0FE11B000881AB /* CatsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListViewModel.swift; sourceTree = "<group>"; };
 		5AD312592C0FE254000881AB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD3125B2C0FE588000881AB /* CatDetailsViewModel.swift */,
+				5ACB817F2C13462B00415C0E /* CatDetailsView.swift */,
 			);
 			path = CatDetails;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			files = (
 				5A60A78D2C0FD5EC00B92E44 /* CatsTabView.swift in Sources */,
 				5AD312572C0FE11B000881AB /* CatsListViewModel.swift in Sources */,
+				5ACB81802C13462B00415C0E /* CatDetailsView.swift in Sources */,
 				5A4084222C11DE9D00736315 /* DependencyManager.swift in Sources */,
 				5A60A78B2C0FD5EC00B92E44 /* Sword_ChallengeApp.swift in Sources */,
 				5AD312532C0FE0F2000881AB /* CatsListView.swift in Sources */,

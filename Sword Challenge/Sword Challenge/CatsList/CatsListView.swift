@@ -12,16 +12,18 @@ struct CatsListView: View {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible())], content: {
                     ForEach(viewModel.cats, id: \.self) { cat in
-                        CatListItemView(name: cat.name, imageData: cat.image)
+                        NavigationLink {
+                            let viewModel = CatDetailsViewModel(catsUseCases: DependencyManager.shared.catsUseCases)
+
+                            CatDetailsView(viewModel: viewModel)
+                                .onAppear {
+                                    viewModel.viewAppear(catId: cat.id)
+                                }
+                        } label: {
+                            CatListItemView(name: cat.name, imageData: cat.image)
+                        }
                     }
                 })
-            }
-
-            NavigationLink {
-                Text("View")
-                    .navigationTitle("Details")
-            } label: {
-                Text("Next")
             }
         }
         .task {
