@@ -6,6 +6,8 @@ public struct Cat {
     public var image: CatImage?
 }
 
+extension Cat: Equatable { }
+
 public struct CatBreed {
     public var id: String
     public var name: String

@@ -65,7 +65,7 @@ final class CatsGatewayTests: XCTestCase {
         let imageId = "an-image-id"
         apiClientStub.returnObject = CatImageResponse.mock
 
-        let response = try await gateway.fetchCatImage(imageId: imageId)!
+        let response = try await gateway.fetchCatImage(imageId: imageId)
 
         XCTAssertEqual(response, CatImage(catImageResponse: CatImageResponse.mock))
     }
