@@ -31,17 +31,35 @@ final class CatsListViewModel {
 
         isLoading = true
 
+        guard cats.isEmpty else {
+            cats = catsUseCases.cats.compactMap({ cat in
+                CatListItem(cat: cat)
+            })
+
+            return
+        }
+
         do {
             let cats = try await catsUseCases.fetchCats(page: 0)
-
-            print(cats)
+            
+//            print(cats)
 
             self.cats = cats.compactMap({ cat in
                 CatListItem(cat: cat)
             })
+
+            print(self.cats)
         } catch {
             print(error)
         }
+    }
+
+    func setFavourite(id: String) {
+        let _ = catsUseCases.setFavourite(id: id)
+
+        cats = catsUseCases.cats.compactMap({ cat in
+            CatListItem(cat: cat)
+        })
     }
 
     private func subscribeSearchTextChanges() {

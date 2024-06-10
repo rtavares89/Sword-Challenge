@@ -2,15 +2,18 @@
 import Foundation
 
 public protocol CatsUseCases {
+    var cats: [Cat] { get }
     func fetchCats(page: Int) async throws -> [Cat]
+    func getFavouriteCats() -> [Cat]
     func getCat(id: String) -> Cat?
     func search(catBreed: String) async throws -> [Cat]
+    func setFavourite(id: String) -> Cat?
 }
 
 public final class CatsUseCasesImplementation: CatsUseCases {
 
     private let catsGateway: CatsGateway
-    private var cats = [Cat]()
+    public var cats = [Cat]()
 
     public init(catsGateway: CatsGateway) {
         self.catsGateway = catsGateway
@@ -25,6 +28,10 @@ public final class CatsUseCasesImplementation: CatsUseCases {
         return cats
     }
 
+    public func getFavouriteCats() -> [Cat] {
+        cats.filter { $0.isFavourite == true }
+    }
+
     public func getCat(id: String) -> Cat? {
         cats.first { $0.breed.id == id }
     }
@@ -36,6 +43,16 @@ public final class CatsUseCasesImplementation: CatsUseCases {
         cats = mergeCatBreedWithImage(catBreeds: catBreeds, catImages: catImages)
 
         return cats
+    }
+
+    public func setFavourite(id: String) -> Cat? {
+        guard let catIndex = cats.firstIndex(where: { cat in
+            cat.breed.id == id
+        }) else { return nil }
+
+        cats[catIndex].isFavourite.toggle()
+
+        return cats[catIndex]
     }
 
     private func fetchCatImages(imagesIds: [String]) async throws -> [CatImage] {

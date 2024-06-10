@@ -44,6 +44,13 @@ struct CatDetailsView: View {
             Text(viewModel.cat?.breed.description ?? "")
         }
         .navigationTitle(viewModel.cat?.breed.name ?? "")
+        .toolbar {
+            Button {
+                viewModel.favoriteButtonTapped()
+            } label: {
+                Image(systemName: viewModel.favouriteImage)
+            }
+        }
     }
 }
 

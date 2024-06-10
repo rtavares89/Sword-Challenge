@@ -8,6 +8,12 @@ final class CatDetailsViewModel {
 
     var cat: Cat?
     private let catsUseCases: CatsUseCases
+    var isFavourite: Bool {
+        cat?.isFavourite ?? false
+    }
+    var favouriteImage: String {
+        isFavourite ? "star.fill" : "star"
+    }
 
     init(catsUseCases: CatsUseCases) {
         self.catsUseCases = catsUseCases
@@ -15,11 +21,9 @@ final class CatDetailsViewModel {
 
     func viewAppear(catId: String) {
         cat = catsUseCases.getCat(id: catId)
-
-        print(cat)
     }
 
     func favoriteButtonTapped() {
-        
+        cat = catsUseCases.setFavourite(id: cat!.breed.id)
     }
 }

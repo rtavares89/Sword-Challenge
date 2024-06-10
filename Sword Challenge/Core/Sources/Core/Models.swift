@@ -4,6 +4,7 @@ import Foundation
 public struct Cat {
     public var breed: CatBreed
     public var image: CatImage?
+    public var isFavourite = false
 }
 
 extension Cat: Equatable { }

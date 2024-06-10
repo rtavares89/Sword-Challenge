@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A086FC42C175D2200EE1A48 /* FavouriteCatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A086FC32C175D2200EE1A48 /* FavouriteCatsViewModel.swift */; };
 		5A4084202C11DE4200736315 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 5A40841F2C11DE4200736315 /* Core */; };
 		5A4084222C11DE9D00736315 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4084212C11DE9D00736315 /* DependencyManager.swift */; };
 		5A4084242C11DF8D00736315 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4084232C11DF8D00736315 /* Data */; };
@@ -23,7 +24,7 @@
 		5AD3125A2C0FE254000881AB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5AD312592C0FE254000881AB /* Localizable.xcstrings */; };
 		5AD3125C2C0FE588000881AB /* CatDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3125B2C0FE588000881AB /* CatDetailsViewModel.swift */; };
 		5AD3125E2C0FE604000881AB /* CatListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3125D2C0FE604000881AB /* CatListItem.swift */; };
-		5AD312612C0FE77A000881AB /* FavouritesCatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312602C0FE77A000881AB /* FavouritesCatsView.swift */; };
+		5AD312612C0FE77A000881AB /* FavouriteCatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312602C0FE77A000881AB /* FavouriteCatsView.swift */; };
 		5AD312642C10A851000881AB /* CatsTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312632C10A851000881AB /* CatsTabViewModel.swift */; };
 		5AD312662C10D283000881AB /* CatListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312652C10D283000881AB /* CatListItemView.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A086FC32C175D2200EE1A48 /* FavouriteCatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCatsViewModel.swift; sourceTree = "<group>"; };
 		5A4084212C11DE9D00736315 /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		5A60A7872C0FD5EC00B92E44 /* Sword Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sword Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A60A78A2C0FD5EC00B92E44 /* Sword_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sword_ChallengeApp.swift; sourceTree = "<group>"; };
@@ -63,7 +65,7 @@
 		5AD312592C0FE254000881AB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		5AD3125B2C0FE588000881AB /* CatDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailsViewModel.swift; sourceTree = "<group>"; };
 		5AD3125D2C0FE604000881AB /* CatListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatListItem.swift; sourceTree = "<group>"; };
-		5AD312602C0FE77A000881AB /* FavouritesCatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCatsView.swift; sourceTree = "<group>"; };
+		5AD312602C0FE77A000881AB /* FavouriteCatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCatsView.swift; sourceTree = "<group>"; };
 		5AD312632C10A851000881AB /* CatsTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsTabViewModel.swift; sourceTree = "<group>"; };
 		5AD312652C10D283000881AB /* CatListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,7 +197,8 @@
 		5AD3125F2C0FE75F000881AB /* FavouritesCats */ = {
 			isa = PBXGroup;
 			children = (
-				5AD312602C0FE77A000881AB /* FavouritesCatsView.swift */,
+				5AD312602C0FE77A000881AB /* FavouriteCatsView.swift */,
+				5A086FC32C175D2200EE1A48 /* FavouriteCatsViewModel.swift */,
 			);
 			path = FavouritesCats;
 			sourceTree = "<group>";
@@ -347,10 +350,11 @@
 				5A60A78D2C0FD5EC00B92E44 /* CatsTabView.swift in Sources */,
 				5AD312572C0FE11B000881AB /* CatsListViewModel.swift in Sources */,
 				5ACB81802C13462B00415C0E /* CatDetailsView.swift in Sources */,
+				5A086FC42C175D2200EE1A48 /* FavouriteCatsViewModel.swift in Sources */,
 				5A4084222C11DE9D00736315 /* DependencyManager.swift in Sources */,
 				5A60A78B2C0FD5EC00B92E44 /* Sword_ChallengeApp.swift in Sources */,
 				5AD312532C0FE0F2000881AB /* CatsListView.swift in Sources */,
-				5AD312612C0FE77A000881AB /* FavouritesCatsView.swift in Sources */,
+				5AD312612C0FE77A000881AB /* FavouriteCatsView.swift in Sources */,
 				5AD3125C2C0FE588000881AB /* CatDetailsViewModel.swift in Sources */,
 				5AD312662C10D283000881AB /* CatListItemView.swift in Sources */,
 				5AD3125E2C0FE604000881AB /* CatListItem.swift in Sources */,
@@ -524,8 +528,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,9 +537,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ricardotavares.Sword-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -553,8 +561,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -562,9 +570,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ricardotavares.Sword-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

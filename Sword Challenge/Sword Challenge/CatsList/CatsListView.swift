@@ -21,6 +21,24 @@ struct CatsListView: View {
                                 }
                         } label: {
                             CatListItemView(name: cat.name, imageData: cat.image)
+                                .overlay {
+                                    VStack{
+                                        HStack {
+                                            Spacer()
+
+                                            Button {
+                                                viewModel.setFavourite(id: cat.id)
+                                            } label: {
+                                                Image(systemName: cat.isFavourite ? "star.fill" : "star")
+                                                    .resizable()
+                                                    .foregroundColor(.blue)
+                                                    .frame(width: 40, height: 40)
+                                            }
+                                        }
+
+                                        Spacer()
+                                    }
+                                }
                         }
                     }
                 })

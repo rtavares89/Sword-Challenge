@@ -4,7 +4,7 @@ import XCTest
 
 final class CatsUseCasesTests: XCTestCase {
 
-    private var useCases: CatsUseCases!
+    private var useCases: CatsUseCasesImplementation!
     private var catGatewayStub: CatsGatewayStub!
 
     override func setUp() {
@@ -102,5 +102,46 @@ final class CatsUseCasesTests: XCTestCase {
         let cats = try await useCases.search(catBreed: query)
 
         XCTAssertEqual(cats, [Cat(breed: CatBreed.dummy, image: CatImage.dummyWithData)])
+    }
+
+    func test_GIVEN_a_cat_id_WHEN_getting_the_cat_THEN_should_return_cat() {
+        let expectedCat = [Cat(breed: CatBreed.dummy, isFavourite: false)]
+        useCases.cats = expectedCat
+
+        let cat = useCases.getCat(id: CatBreed.dummy.id)
+
+        XCTAssertEqual(cat, expectedCat.first)
+    }
+
+    func test_WHEN_getting_favourite_cats_THEN_should_return_all_favourite_cats() {
+
+        let expectedFavouriteCats = [
+            Cat(breed: CatBreed.dummy, isFavourite: true),
+            Cat(breed: CatBreed.dummy2, isFavourite: true)
+        ]
+
+        useCases.cats = [Cat(breed: CatBreed.dummy, isFavourite: false)] + expectedFavouriteCats
+
+        let favouriteCats = useCases.getFavouriteCats()
+
+        XCTAssertEqual(favouriteCats, expectedFavouriteCats)
+    }
+
+    func test_GIVEN_a_cat_id_WHEN_setting_as_favourite_THEN_should_return_cat_as_favourite() {
+
+        useCases.cats = [Cat(breed: CatBreed.dummy, isFavourite: false)]
+
+        let favouriteCat = useCases.setFavourite(id: CatBreed.dummy.id)
+
+        XCTAssertEqual(favouriteCat, Cat(breed: CatBreed.dummy, isFavourite: true))
+    }
+
+    func test_GIVEN_a_cat_id_WHEN_setting_as_favourite_THEN_should_set_cat_as_favourite() {
+
+        useCases.cats = [Cat(breed: CatBreed.dummy, isFavourite: false)]
+
+        let _ = useCases.setFavourite(id: CatBreed.dummy.id)
+
+        XCTAssertEqual(useCases.cats, [Cat(breed: CatBreed.dummy, isFavourite: true)])
     }
 }

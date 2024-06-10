@@ -6,7 +6,11 @@ struct CatListItem: Hashable {
     var id: String
     var name: String
     var image: Data
-    var isFavorite: Bool
+    var isFavourite: Bool
+
+    var favouriteImage: String {
+        isFavourite ? "star.fill" : "star"
+    }
 }
 
 extension CatListItem {
@@ -17,6 +21,6 @@ extension CatListItem {
         self.id = cat.breed.id
         self.name = cat.breed.name
         self.image = imageData
-        self.isFavorite = false
+        self.isFavourite = cat.isFavourite
     }
 }

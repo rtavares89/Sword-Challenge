@@ -4,19 +4,16 @@ import SwiftUI
 struct CatsTabView: View {
 
     @Bindable var viewModel: CatsTabViewModel
+    let catsListViewModel: CatsListViewModel
+    let favouriteCatsViewModel: FavouriteCatsViewModel
 
     var body: some View {
 
         TabView(selection: $viewModel.selectedTab) {
 
             NavigationStack {
-                CatsListView(
-                    viewModel:
-                        CatsListViewModel(
-                            catsUseCases: DependencyManager.shared.catsUseCases
-                        )
-                )
-                .navigationTitle("Cats App")
+                CatsListView(viewModel: catsListViewModel)
+                    .navigationTitle("Cats App")
             }
             .tabItem {
                 Label("Cats", systemImage: "list.bullet")
@@ -24,7 +21,7 @@ struct CatsTabView: View {
             .tag(CatTab.list)
 
             NavigationStack {
-                FavouritesCatsView()
+                FavouriteCatsView(viewModel: favouriteCatsViewModel)
                     .navigationTitle("Favourites")
             }
             .tabItem {
@@ -36,9 +33,13 @@ struct CatsTabView: View {
 }
 
 #Preview("Cats List") {
-    CatsTabView(viewModel: CatsTabViewModel(selectedTab: .list))
+    CatsTabView(viewModel: CatsTabViewModel(selectedTab: .list),
+                catsListViewModel: CatsListViewModel(catsUseCases: DependencyManager.shared.catsUseCases), 
+                favouriteCatsViewModel: FavouriteCatsViewModel(catsUseCases: DependencyManager.shared.catsUseCases))
 }
 
 #Preview("Favourites") {
-    CatsTabView(viewModel: CatsTabViewModel(selectedTab: .favourites))
+    CatsTabView(viewModel: CatsTabViewModel(selectedTab: .favourites),
+                catsListViewModel: CatsListViewModel(catsUseCases: DependencyManager.shared.catsUseCases),
+                favouriteCatsViewModel: FavouriteCatsViewModel(catsUseCases: DependencyManager.shared.catsUseCases))
 }
