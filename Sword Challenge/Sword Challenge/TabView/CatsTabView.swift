@@ -18,7 +18,6 @@ struct CatsTabView: View {
                 )
                 .navigationTitle("Cats App")
             }
-            .searchable(text: .constant(""))
             .tabItem {
                 Label("Cats", systemImage: "list.bullet")
             }

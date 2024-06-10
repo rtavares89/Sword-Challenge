@@ -26,6 +26,8 @@ struct CatsListView: View {
                 })
             }
         }
+        .searchable(text: $viewModel.searchText)
+        .autocorrectionDisabled()
         .task {
             await viewModel.viewAppear()
         }

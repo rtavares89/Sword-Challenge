@@ -83,4 +83,24 @@ final class CatsUseCasesTests: XCTestCase {
 
         XCTAssertEqual(cat, Cat(breed: CatBreed.dummy, image: CatImage.dummyWithData))
     }
+
+    func test_GIVEN_a_cat_breed_query_WHEN_search_called_THEN_should_call_searchCatBreeds() async throws {
+        catGatewayStub.catBreeds = [CatBreed.dummy]
+        catGatewayStub.catImage = [CatImage.dummyWithData.id: CatImage.dummyWithData]
+        let query = "Cat"
+
+        let _ = try await useCases.search(catBreed: query)
+
+        XCTAssertEqual(catGatewayStub.searchCatBreedsCalled, true)
+    }
+
+    func test_GIVEN_a_cat_breed_query_WHEN_search_called_THEN_should_return_cats() async throws {
+        catGatewayStub.catBreeds = [CatBreed.dummy]
+        catGatewayStub.catImage = [CatImage.dummyWithData.id: CatImage.dummyWithData]
+        let query = "Cat"
+
+        let cats = try await useCases.search(catBreed: query)
+
+        XCTAssertEqual(cats, [Cat(breed: CatBreed.dummy, image: CatImage.dummyWithData)])
+    }
 }

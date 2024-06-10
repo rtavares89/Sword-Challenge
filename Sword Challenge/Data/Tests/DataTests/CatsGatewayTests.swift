@@ -115,4 +115,27 @@ final class CatsGatewayTests: XCTestCase {
 
         XCTFail("Should throw error")
     }
+
+    func test_GIVEN_a_cat_breed_query_WHEN_searching_And_succeeds_THEN_return_cat_breed() async throws {
+        let query = "a cat"
+        apiClientStub.returnArrayObject = [CatBreedsResponse.mock]
+
+        let response = try await gateway.search(catBreed: query)
+
+        XCTAssertEqual(response, [CatBreed(catBreedResponse: CatBreedsResponse.mock)])
+    }
+
+    func test_GIVEN_a_cat_breed_query_WHEN_searching_And_apiClient_throws_exception_THEN_should_throw_exception() async throws {
+        let query = ""
+        apiClientStub.shouldThrow = true
+
+        do {
+            let _ = try await gateway.search(catBreed: query)
+        } catch {
+            XCTAssertNotNil(error)
+            return
+        }
+
+        XCTFail("Should throw error")
+    }
 }

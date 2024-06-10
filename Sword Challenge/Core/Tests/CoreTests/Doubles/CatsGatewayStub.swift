@@ -1,6 +1,6 @@
 
 import Foundation
-import Core
+@testable import Core
 
 struct CatsGatewayError: Error { }
 
@@ -9,9 +9,13 @@ final class CatsGatewayStub: CatsGateway {
     var fetchCatBreedsCalled = false
     var fetchCatImageCalled = false
     var downloadCatImageCalled = false
+    var searchCatBreedsCalled = false
+
     var fetchCatBreedShouldThrow = false
     var fetchCatImageShouldThrow = false
     var downloadCatImageShouldThrow = false
+    var searchCatBreedShouldThrow = false
+
     var catBreeds = [CatBreed]()
     var catImage = [String: CatImage]()
     var imageData = Data()
@@ -44,5 +48,15 @@ final class CatsGatewayStub: CatsGateway {
         }
 
         return imageData
+    }
+
+    func search(catBreed: String) async throws -> [CatBreed] {
+        searchCatBreedsCalled = true
+
+        if searchCatBreedShouldThrow {
+            throw CatsGatewayError()
+        }
+
+        return catBreeds
     }
 }

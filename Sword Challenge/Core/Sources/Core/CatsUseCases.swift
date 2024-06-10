@@ -4,6 +4,7 @@ import Foundation
 public protocol CatsUseCases {
     func fetchCats(page: Int) async throws -> [Cat]
     func getCat(id: String) -> Cat?
+    func search(catBreed: String) async throws -> [Cat]
 }
 
 public final class CatsUseCasesImplementation: CatsUseCases {
@@ -19,19 +20,22 @@ public final class CatsUseCasesImplementation: CatsUseCases {
         let catBreeds = try await catsGateway.fetchCatBreeds(page: page)
         let catImages = try await fetchCatImages(imagesIds: catBreeds.map { $0.imageId })
 
-        cats = catBreeds.map { breed in
-            let image = catImages.first { image in
-                image.id == breed.imageId
-            }
-
-            return Cat(breed: breed, image: image)
-        }
+        cats = mergeCatBreedWithImage(catBreeds: catBreeds, catImages: catImages)
 
         return cats
     }
 
     public func getCat(id: String) -> Cat? {
         cats.first { $0.breed.id == id }
+    }
+
+    public func search(catBreed: String) async throws -> [Cat] {
+        let catBreeds = try await catsGateway.search(catBreed: catBreed)
+        let catImages = try await fetchCatImages(imagesIds: catBreeds.map { $0.imageId })
+
+        cats = mergeCatBreedWithImage(catBreeds: catBreeds, catImages: catImages)
+
+        return cats
     }
 
     private func fetchCatImages(imagesIds: [String]) async throws -> [CatImage] {
@@ -58,5 +62,17 @@ public final class CatsUseCasesImplementation: CatsUseCases {
         }
 
         return catImages
+    }
+
+    private func mergeCatBreedWithImage(catBreeds: [CatBreed], catImages: [CatImage]) -> [Cat] {
+        cats = catBreeds.map { breed in
+            let image = catImages.first { image in
+                image.id == breed.imageId
+            }
+
+            return Cat(breed: breed, image: image)
+        }
+
+        return cats
     }
 }

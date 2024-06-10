@@ -42,4 +42,15 @@ public final class CatsGatewayImplementation: CatsGateway {
 
         return data
     }
+
+    public func search(catBreed: String) async throws -> [CatBreed] {
+
+        let request = SearchCatBreedRequest(baseUrl: baseUrl, searchBreed: catBreed).request
+
+        let catBreedsResponse: [CatBreedsResponse] = try await apiClient.getArray(request: request)
+
+        let catBreeds = catBreedsResponse.map { CatBreed(catBreedResponse: $0) }
+
+        return catBreeds
+    }
 }
