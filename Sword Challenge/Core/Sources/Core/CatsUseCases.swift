@@ -14,23 +14,26 @@ public protocol CatsUseCases {
 public final class CatsUseCasesImplementation: CatsUseCases {
 
     private let catsGateway: CatsGateway
+    private let favouriteCatsRepository: FavouriteCatsRepository
     public var cats = [Cat]()
 
-    public init(catsGateway: CatsGateway) {
+    public init(catsGateway: CatsGateway, favouriteCatsRepository: FavouriteCatsRepository) {
         self.catsGateway = catsGateway
+        self.favouriteCatsRepository = favouriteCatsRepository
     }
 
     public func fetchCats(page: Int) async throws -> [Cat] {
         let catBreeds = try await catsGateway.fetchCatBreeds(page: page)
         let catImages = try await fetchCatImages(imagesIds: catBreeds.map { $0.imageId })
+        let favouriteCats = getFavouriteCats()
 
-        cats = mergeCatBreedWithImage(catBreeds: catBreeds, catImages: catImages)
+        cats = mergeCatBreedWithImage(catBreeds: catBreeds, catImages: catImages, favouriteCats: favouriteCats)
 
         return cats
     }
 
     public func getFavouriteCats() -> [Cat] {
-        cats.filter { $0.isFavourite == true }
+        try! favouriteCatsRepository.findAll()
     }
 
     public func getCat(id: String) -> Cat? {
@@ -40,8 +43,9 @@ public final class CatsUseCasesImplementation: CatsUseCases {
     public func search(catBreed: String) async throws -> [Cat] {
         let catBreeds = try await catsGateway.search(catBreed: catBreed)
         let catImages = try await fetchCatImages(imagesIds: catBreeds.map { $0.imageId })
+        let favouriteCats = getFavouriteCats()
 
-        cats = mergeCatBreedWithImage(catBreeds: catBreeds, catImages: catImages)
+        cats = mergeCatBreedWithImage(catBreeds: catBreeds, catImages: catImages, favouriteCats: favouriteCats)
 
         return cats
     }
@@ -52,6 +56,13 @@ public final class CatsUseCasesImplementation: CatsUseCases {
         }) else { return nil }
 
         cats[catIndex].isFavourite.toggle()
+
+        // TODO: Force unwrap
+        if cats[catIndex].isFavourite {
+            try! favouriteCatsRepository.insert(cats[catIndex])
+        } else {
+            try! favouriteCatsRepository.delete(cats[catIndex].breed.id)
+        }
 
         return cats[catIndex]
     }
@@ -69,6 +80,8 @@ public final class CatsUseCasesImplementation: CatsUseCases {
                 .compactMap { Int($0) }
                 .first
         }
+
+        guard lowerBoundLifespan.count != 0 else { return 0 }
 
         return lowerBoundLifespan.reduce(0, +) / lowerBoundLifespan.count
     }
@@ -99,13 +112,17 @@ public final class CatsUseCasesImplementation: CatsUseCases {
         return catImages
     }
 
-    private func mergeCatBreedWithImage(catBreeds: [CatBreed], catImages: [CatImage]) -> [Cat] {
+    private func mergeCatBreedWithImage(catBreeds: [CatBreed], catImages: [CatImage], favouriteCats: [Cat]) -> [Cat] {
         cats = catBreeds.map { breed in
             let image = catImages.first { image in
                 image.id == breed.imageId
             }
 
-            return Cat(breed: breed, image: image)
+            let favouriteCat = favouriteCats.first { favouriteCat in
+                favouriteCat.breed.id == breed.id
+            }
+
+            return Cat(breed: breed, image: image, isFavourite: favouriteCat?.isFavourite ?? false)
         }
 
         return cats

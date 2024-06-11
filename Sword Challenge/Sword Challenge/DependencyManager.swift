@@ -13,9 +13,11 @@ final class DependencyManager {
 
     static let shared = DependencyManager()
 
-    var catsUseCases: CatsUseCases
-    private var apiClient: ApiClient
-    private var catsGateway: CatsGateway
+    let catsUseCases: CatsUseCases
+    private let apiClient: ApiClient
+    private let favouriteCatsPersistence: FavouriteCatsPersistenceDecorator
+    private let catsGateway: CatsGateway
+    private let favouriteCatsRepository: FavouriteCatsRepository
     private var jsonDecoder: JSONDecoder
 
     private init() { 
@@ -24,7 +26,9 @@ final class DependencyManager {
         let baseUrl = URL(string: "https://api.thecatapi.com/")!
 
         self.apiClient = ApiClientImplementation(jsonDecoder: jsonDecoder)
+        self.favouriteCatsPersistence = FavouriteCatsPersistence()
         self.catsGateway = CatsGatewayImplementation(apiClient: apiClient, baseUrl: baseUrl)
-        self.catsUseCases = CatsUseCasesImplementation(catsGateway: catsGateway)
+        self.favouriteCatsRepository = FavouriteCatsRepositoryImplementation(persistence: favouriteCatsPersistence)
+        self.catsUseCases = CatsUseCasesImplementation(catsGateway: catsGateway, favouriteCatsRepository: favouriteCatsRepository)
     }
 }

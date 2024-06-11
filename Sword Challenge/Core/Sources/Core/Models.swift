@@ -5,6 +5,12 @@ public struct Cat {
     public var breed: CatBreed
     public var image: CatImage?
     public var isFavourite = false
+
+    public init(breed: CatBreed, image: CatImage?, isFavourite: Bool) {
+        self.breed = breed
+        self.image = image
+        self.isFavourite = isFavourite
+    }
 }
 
 extension Cat: Equatable { }
