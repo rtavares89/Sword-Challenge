@@ -50,6 +50,10 @@ struct FavouriteCatsView: View {
         .onAppear {
             viewModel.viewAppear()
         }
+
+        if viewModel.showLifeSpan {
+            Text("Average lifespan: \(viewModel.averageLifeSpan)")
+        }
     }
 }
 

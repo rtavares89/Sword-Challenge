@@ -8,6 +8,10 @@ final class FavouriteCatsViewModel {
     
     private let catsUseCases: CatsUseCases
     var cats = [CatListItem]()
+    var averageLifeSpan = 0
+    var showLifeSpan: Bool {
+        !cats.isEmpty
+    }
 
     init(catsUseCases: CatsUseCases) {
         self.catsUseCases = catsUseCases
@@ -27,5 +31,7 @@ final class FavouriteCatsViewModel {
         cats = catsUseCases.getFavouriteCats().compactMap({ cat in
             CatListItem(cat: cat)
         })
+
+        averageLifeSpan = catsUseCases.favouritesAverageLifespan()
     }
 }

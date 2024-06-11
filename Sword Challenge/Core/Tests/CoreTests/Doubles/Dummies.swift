@@ -9,7 +9,7 @@ extension CatBreed {
                                 description: "cat description",
                                 origin: "cat origin",
                                 temperament: "cat temperament",
-                                lifeSpan: "cat life span",
+                                lifeSpan: "8 - 10 lifespan",
                                 imageId: "cat-image-id")
 
     static let dummy2 = CatBreed(id: "cat-id-2",
@@ -17,7 +17,7 @@ extension CatBreed {
                                 description: "cat description",
                                 origin: "cat origin",
                                 temperament: "cat temperament",
-                                lifeSpan: "cat life span",
+                                lifeSpan: "10 - 15 lifespan",
                                 imageId: "cat-image-id-2")
 
 }

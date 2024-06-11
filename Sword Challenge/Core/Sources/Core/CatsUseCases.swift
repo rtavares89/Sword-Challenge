@@ -8,6 +8,7 @@ public protocol CatsUseCases {
     func getCat(id: String) -> Cat?
     func search(catBreed: String) async throws -> [Cat]
     func setFavourite(id: String) -> Cat?
+    func favouritesAverageLifespan() -> Int
 }
 
 public final class CatsUseCasesImplementation: CatsUseCases {
@@ -53,6 +54,23 @@ public final class CatsUseCasesImplementation: CatsUseCases {
         cats[catIndex].isFavourite.toggle()
 
         return cats[catIndex]
+    }
+
+    public func favouritesAverageLifespan() -> Int {
+
+        let favouriteCats = getFavouriteCats()
+
+        guard !favouriteCats.isEmpty else { return 0 }
+
+        let lowerBoundLifespan = favouriteCats.compactMap { cat in
+            cat.breed.lifeSpan
+                .components(separatedBy: .decimalDigits.inverted)
+                .filter { $0 != "" }
+                .compactMap { Int($0) }
+                .first
+        }
+
+        return lowerBoundLifespan.reduce(0, +) / lowerBoundLifespan.count
     }
 
     private func fetchCatImages(imagesIds: [String]) async throws -> [CatImage] {

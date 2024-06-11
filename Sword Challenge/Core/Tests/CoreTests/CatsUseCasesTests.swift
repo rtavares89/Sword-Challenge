@@ -144,4 +144,12 @@ final class CatsUseCasesTests: XCTestCase {
 
         XCTAssertEqual(useCases.cats, [Cat(breed: CatBreed.dummy, isFavourite: true)])
     }
+
+    func test_GIVEN_favourite_cats_WHEN_calculating_favouritesAverageLifespan_THEN_should_return_average_lower_bound_lifespan() {
+        useCases.cats = [Cat(breed: CatBreed.dummy, isFavourite: true)]
+
+        let lifespan = useCases.favouritesAverageLifespan()
+
+        XCTAssertEqual(lifespan, 8)
+    }
 }
