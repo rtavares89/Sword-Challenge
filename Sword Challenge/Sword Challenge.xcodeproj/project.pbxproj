@@ -27,6 +27,11 @@
 		5AD312612C0FE77A000881AB /* FavouriteCatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312602C0FE77A000881AB /* FavouriteCatsView.swift */; };
 		5AD312642C10A851000881AB /* CatsTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312632C10A851000881AB /* CatsTabViewModel.swift */; };
 		5AD312662C10D283000881AB /* CatListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD312652C10D283000881AB /* CatListItemView.swift */; };
+		5AD7B82C2C18D3610031FF54 /* CatsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD7B82B2C18D3610031FF54 /* CatsListViewModelTests.swift */; };
+		5AD7B82E2C18D38B0031FF54 /* FavouriteCatsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD7B82D2C18D38B0031FF54 /* FavouriteCatsViewModelTests.swift */; };
+		5AD7B8302C18D3A10031FF54 /* CatDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD7B82F2C18D3A10031FF54 /* CatDetailsViewModelTests.swift */; };
+		5AD7B8332C18D4610031FF54 /* CatsUseCasesStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD7B8322C18D4610031FF54 /* CatsUseCasesStub.swift */; };
+		5AD7B8352C18E2E70031FF54 /* Dummies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD7B8342C18E2E70031FF54 /* Dummies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +73,11 @@
 		5AD312602C0FE77A000881AB /* FavouriteCatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCatsView.swift; sourceTree = "<group>"; };
 		5AD312632C10A851000881AB /* CatsTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsTabViewModel.swift; sourceTree = "<group>"; };
 		5AD312652C10D283000881AB /* CatListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatListItemView.swift; sourceTree = "<group>"; };
+		5AD7B82B2C18D3610031FF54 /* CatsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListViewModelTests.swift; sourceTree = "<group>"; };
+		5AD7B82D2C18D38B0031FF54 /* FavouriteCatsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCatsViewModelTests.swift; sourceTree = "<group>"; };
+		5AD7B82F2C18D3A10031FF54 /* CatDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		5AD7B8322C18D4610031FF54 /* CatsUseCasesStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsUseCasesStub.swift; sourceTree = "<group>"; };
+		5AD7B8342C18E2E70031FF54 /* Dummies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +161,11 @@
 		5A60A79A2C0FD5EF00B92E44 /* Sword ChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				5AD7B8312C18D3D50031FF54 /* Doubles */,
 				5A60A79B2C0FD5EF00B92E44 /* Sword_ChallengeTests.swift */,
+				5AD7B82B2C18D3610031FF54 /* CatsListViewModelTests.swift */,
+				5AD7B82D2C18D38B0031FF54 /* FavouriteCatsViewModelTests.swift */,
+				5AD7B82F2C18D3A10031FF54 /* CatDetailsViewModelTests.swift */,
 			);
 			path = "Sword ChallengeTests";
 			sourceTree = "<group>";
@@ -210,6 +224,15 @@
 				5AD312632C10A851000881AB /* CatsTabViewModel.swift */,
 			);
 			path = TabView;
+			sourceTree = "<group>";
+		};
+		5AD7B8312C18D3D50031FF54 /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				5AD7B8322C18D4610031FF54 /* CatsUseCasesStub.swift */,
+				5AD7B8342C18E2E70031FF54 /* Dummies.swift */,
+			);
+			path = Doubles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,7 +389,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AD7B82E2C18D38B0031FF54 /* FavouriteCatsViewModelTests.swift in Sources */,
 				5A60A79C2C0FD5EF00B92E44 /* Sword_ChallengeTests.swift in Sources */,
+				5AD7B8302C18D3A10031FF54 /* CatDetailsViewModelTests.swift in Sources */,
+				5AD7B8332C18D4610031FF54 /* CatsUseCasesStub.swift in Sources */,
+				5AD7B8352C18E2E70031FF54 /* Dummies.swift in Sources */,
+				5AD7B82C2C18D3610031FF54 /* CatsListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

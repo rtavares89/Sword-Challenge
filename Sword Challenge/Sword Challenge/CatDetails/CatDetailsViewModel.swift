@@ -24,6 +24,8 @@ final class CatDetailsViewModel {
     }
 
     func favoriteButtonTapped() {
-        cat = catsUseCases.setFavourite(id: cat!.breed.id)
+        guard let cat else { return }
+
+        self.cat = catsUseCases.setFavourite(id: cat.breed.id)
     }
 }

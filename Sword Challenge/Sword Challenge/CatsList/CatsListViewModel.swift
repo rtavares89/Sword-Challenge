@@ -41,14 +41,11 @@ final class CatsListViewModel {
 
         do {
             let cats = try await catsUseCases.fetchCats(page: 0)
-            
-//            print(cats)
 
             self.cats = cats.compactMap({ cat in
                 CatListItem(cat: cat)
             })
 
-            print(self.cats)
         } catch {
             print(error)
         }
