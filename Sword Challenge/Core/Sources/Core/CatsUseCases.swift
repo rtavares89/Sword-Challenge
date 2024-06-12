@@ -4,7 +4,7 @@ import Foundation
 public protocol CatsUseCases {
     var cats: [Cat] { get }
     func fetchCats(page: Int) async throws -> [Cat]
-    func getFavouriteCats() -> [Cat]
+    func getFavouriteCats() throws -> [Cat]
     func getCat(id: String) -> Cat?
     func search(catBreed: String) async throws -> [Cat]
     func setFavourite(id: String) -> Cat?
@@ -24,16 +24,16 @@ public final class CatsUseCasesImplementation: CatsUseCases {
 
     public func fetchCats(page: Int) async throws -> [Cat] {
         let catBreeds = try await catsGateway.fetchCatBreeds(page: page)
-        let catImages = try await fetchCatImages(imagesIds: catBreeds.map { $0.imageId })
-        let favouriteCats = getFavouriteCats()
+        let catImages = try await fetchCatImages(imagesIds: catBreeds.compactMap { $0.imageId })
+        let favouriteCats = try getFavouriteCats()
 
         cats = mergeCatBreedWithImage(catBreeds: catBreeds, catImages: catImages, favouriteCats: favouriteCats)
 
         return cats
     }
 
-    public func getFavouriteCats() -> [Cat] {
-        try! favouriteCatsRepository.findAll()
+    public func getFavouriteCats() throws -> [Cat] {
+        try favouriteCatsRepository.findAll()
     }
 
     public func getCat(id: String) -> Cat? {
@@ -42,8 +42,8 @@ public final class CatsUseCasesImplementation: CatsUseCases {
 
     public func search(catBreed: String) async throws -> [Cat] {
         let catBreeds = try await catsGateway.search(catBreed: catBreed)
-        let catImages = try await fetchCatImages(imagesIds: catBreeds.map { $0.imageId })
-        let favouriteCats = getFavouriteCats()
+        let catImages = try await fetchCatImages(imagesIds: catBreeds.compactMap { $0.imageId })
+        let favouriteCats = try getFavouriteCats()
 
         cats = mergeCatBreedWithImage(catBreeds: catBreeds, catImages: catImages, favouriteCats: favouriteCats)
 
@@ -57,11 +57,10 @@ public final class CatsUseCasesImplementation: CatsUseCases {
 
         cats[catIndex].isFavourite.toggle()
 
-        // TODO: Force unwrap
         if cats[catIndex].isFavourite {
-            try! favouriteCatsRepository.insert(cats[catIndex])
+            favouriteCatsRepository.insert(cats[catIndex])
         } else {
-            try! favouriteCatsRepository.delete(cats[catIndex].breed.id)
+            try? favouriteCatsRepository.delete(cats[catIndex].breed.id)
         }
 
         return cats[catIndex]
@@ -69,7 +68,7 @@ public final class CatsUseCasesImplementation: CatsUseCases {
 
     public func favouritesAverageLifespan() -> Int {
 
-        let favouriteCats = getFavouriteCats()
+        guard let favouriteCats = try? getFavouriteCats() else { return 0 }
 
         guard !favouriteCats.isEmpty else { return 0 }
 

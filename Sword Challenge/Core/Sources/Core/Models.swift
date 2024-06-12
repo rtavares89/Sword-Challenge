@@ -22,9 +22,9 @@ public struct CatBreed {
     public var origin: String
     public var temperament: String
     public var lifeSpan: String
-    public var imageId: String
+    public var imageId: String?
 
-    public init(id: String, name: String, description: String, origin: String, temperament: String, lifeSpan: String, imageId: String) {
+    public init(id: String, name: String, description: String, origin: String, temperament: String, lifeSpan: String, imageId: String?) {
         self.id = id
         self.name = name
         self.description = description

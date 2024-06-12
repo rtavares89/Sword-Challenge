@@ -9,7 +9,7 @@ struct CatBreedsResponse: Decodable {
     var origin: String
     var temperament: String
     var lifeSpan: String
-    var referenceImageId: String
+    var referenceImageId: String?
 }
 
 extension CatBreed {

@@ -42,7 +42,12 @@ extension Cat {
                               temperament: model.temperament,
                               lifeSpan: model.lifespan,
                               imageId: model.imageId)
-        let image = CatImage(id: model.imageId, url: model.imageUrl, data: model.image)
+
+        var image: CatImage?
+
+        if let imageId = model.imageId {
+            image = CatImage(id: imageId, url: model.imageUrl, data: model.image)
+        }
 
         self.init(breed: breed, image: image, isFavourite: true)
     }

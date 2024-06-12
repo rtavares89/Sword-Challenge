@@ -12,7 +12,7 @@ final class FavouriteCatsRepositoryStub: FavouriteCatsRepository {
     var cat: Cat?
     var allCats = [Cat]()
 
-    func insert(_ cat: Cat) throws {
+    func insert(_ cat: Cat) {
         insertCalled = true
     }
     

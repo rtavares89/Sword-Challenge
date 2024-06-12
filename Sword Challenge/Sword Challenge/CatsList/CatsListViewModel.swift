@@ -14,8 +14,12 @@ final class CatsListViewModel {
         }
     }
     var isLoading = false
+    var showLoadMore: Bool {
+        !cats.isEmpty && searchText.isEmpty
+    }
     private var searchSubscription: AnyCancellable?
     private var searchTextPublisher = PassthroughSubject<String, Never>()
+    private var currentPage = 0
 
     private let catsUseCases: CatsUseCases
 
@@ -47,6 +51,22 @@ final class CatsListViewModel {
             })
 
         } catch {
+            print(error)
+        }
+    }
+
+    func fetchNextPage() async {
+        currentPage += 1
+        do {
+            let nextCatsPage = try await catsUseCases.fetchCats(page: currentPage)
+
+            let nextPage = nextCatsPage.compactMap({ cat in
+                CatListItem(cat: cat)
+            })
+
+            self.cats += nextPage
+        } catch {
+            currentPage = 0
             print(error)
         }
     }

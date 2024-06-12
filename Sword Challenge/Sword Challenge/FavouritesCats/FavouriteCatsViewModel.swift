@@ -18,17 +18,25 @@ final class FavouriteCatsViewModel {
     }
 
     func viewAppear() {
-        getFavouriteCats()
+        do {
+            try getFavouriteCats()
+        } catch {
+
+        }
     }
 
     func setFavourite(id: String) {
         let _ = catsUseCases.setFavourite(id: id)
 
-        getFavouriteCats()
+        do {
+            try getFavouriteCats()
+        } catch {
+
+        }
     }
 
-    private func getFavouriteCats() {
-        cats = catsUseCases.getFavouriteCats().compactMap({ cat in
+    private func getFavouriteCats() throws {
+        cats = try catsUseCases.getFavouriteCats().compactMap({ cat in
             CatListItem(cat: cat)
         })
 

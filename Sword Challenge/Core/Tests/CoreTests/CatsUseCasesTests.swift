@@ -116,16 +116,17 @@ final class CatsUseCasesTests: XCTestCase {
         XCTAssertEqual(cat, expectedCat.first)
     }
 
-    func test_WHEN_getting_favourite_cats_THEN_should_return_all_favourite_cats() {
+    func test_WHEN_getting_favourite_cats_THEN_should_return_all_favourite_cats() throws {
 
         let expectedFavouriteCats = [
             Cat(breed: CatBreed.dummy, image: nil, isFavourite: true),
             Cat(breed: CatBreed.dummy2, image: nil, isFavourite: true)
         ]
+        favouriteCatsRepository.allCats = expectedFavouriteCats
 
         useCases.cats = [Cat(breed: CatBreed.dummy, image: nil, isFavourite: false)] + expectedFavouriteCats
 
-        let favouriteCats = useCases.getFavouriteCats()
+        let favouriteCats = try useCases.getFavouriteCats()
 
         XCTAssertEqual(favouriteCats, expectedFavouriteCats)
     }
@@ -149,7 +150,7 @@ final class CatsUseCasesTests: XCTestCase {
     }
 
     func test_GIVEN_favourite_cats_WHEN_calculating_favouritesAverageLifespan_THEN_should_return_average_lower_bound_lifespan() {
-        useCases.cats = [Cat(breed: CatBreed.dummy, image: nil, isFavourite: true)]
+        favouriteCatsRepository.allCats = [Cat(breed: CatBreed.dummy, image: nil, isFavourite: true)]
 
         let lifespan = useCases.favouritesAverageLifespan()
 

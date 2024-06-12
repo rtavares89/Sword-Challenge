@@ -10,7 +10,7 @@ public final class FavouriteCatModel: Identifiable {
     var origin: String
     var temperament: String
     var lifespan: String
-    var imageId: String
+    var imageId: String?
     var imageUrl: String
     var image: Data
 
@@ -20,7 +20,7 @@ public final class FavouriteCatModel: Identifiable {
          origin: String,
          temperament: String,
          lifespan: String,
-         imageId: String,
+         imageId: String?,
          imageUrl: String,
          image: Data) {
         self.id = id
